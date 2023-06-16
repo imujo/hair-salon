@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="w-full flex flex-col items-center ">
+      <body className="w-full flex flex-col items-center relative ">
         <Nav />
         <main className="max-w-6xl w-full px-4 md:px-14 mt-14 ">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

@@ -5,10 +5,10 @@ import { FC } from "react";
 
 const Home: FC = () => {
   return (
-    <div className="w-full h-[1000px] ">
-      <header className="flex flex-row gap-4 h-screen justify-center text-center md:text-left ">
-        <section className="w-full pt-16 flex flex-col md:pt-20 lg:pt-32">
-          <h1 className=" text-4xl font-bold mb-6 leading-snug">
+    <div className="h-[1000px] w-full ">
+      <header className="flex h-screen flex-row justify-center gap-4 text-center md:text-left ">
+        <section className="flex w-full flex-col pt-16 md:pt-20 lg:pt-32">
+          <h1 className=" mb-6 text-4xl font-bold leading-snug">
             Elevate Your <span className=" text-[#6BC0C5]">Style</span> with
             Unparalleled Haircare
           </h1>
@@ -16,7 +16,7 @@ const Home: FC = () => {
             Unleash Your Hair&apos;s Potential with Uncompromising Quality
           </h3>
 
-          <div className="my-16 flex gap-4 items-center justify-center flex-col md:items-start md:justify-start lg:flex-row lg:items-center">
+          <div className="my-16 flex flex-col items-center justify-center gap-4 md:items-start md:justify-start lg:flex-row lg:items-center">
             <Button title="Contact Us" />
             <Address
               href="https://goo.gl/maps/rby8rfXyehgEfHUHA"
@@ -25,7 +25,7 @@ const Home: FC = () => {
             />
           </div>
 
-          <div className="flex gap-10 [&>ul>li]:mb-2 justify-center md:justify-start">
+          <div className="flex justify-center gap-10 md:justify-start [&>ul>li]:mb-2">
             <ul className="font-light">
               <li>Mon-Fri</li>
               <li>Sat</li>
@@ -36,7 +36,7 @@ const Home: FC = () => {
             </ul>
           </div>
         </section>
-        <section className="w-full hidden md:block ">
+        <section className="hidden w-full md:block ">
           <Image
             src="/heading_image.png"
             alt="woman_smiling"
