@@ -7,7 +7,7 @@ interface navProps {
 
 const nav: FC<navProps> = ({ page }) => {
   return (
-    <ul className="flex h-14 items-center gap-8 px-14   ">
+    <ul className="flex h-14 items-center gap-8   ">
       <li className="flex-1">
         <h4 className="font-bold">Hair Salon</h4>
       </li>
