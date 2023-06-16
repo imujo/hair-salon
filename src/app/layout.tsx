@@ -16,9 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="w-full flex flex-col items-center">
-        <main className="max-w-6xl w-full px-14">
-          <Nav page="/" />
+      <body className="w-full flex flex-col items-center ">
+        <Nav />
+        <main className="max-w-6xl w-full px-4 md:px-14 mt-14 ">
           {children}
         </main>
       </body>

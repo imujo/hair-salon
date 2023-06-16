@@ -1,15 +1,13 @@
 import Address from "@/components/Address";
 import Button from "@/components/Button";
-import Nav from "@/components/Nav";
-import { NextPage } from "next";
 import Image from "next/image";
 import { FC } from "react";
 
 const Home: FC = () => {
   return (
-    <div className="  w-full ">
-      <header className="flex flex-row gap-4 h-screen ">
-        <section className="w-full pt-36">
+    <div className="w-full h-[1000px] ">
+      <header className="flex flex-row gap-4 h-screen justify-center text-center md:text-left ">
+        <section className="w-full pt-16 flex flex-col md:pt-20 lg:pt-32">
           <h1 className=" text-4xl font-bold mb-6 leading-snug">
             Elevate Your <span className=" text-[#6BC0C5]">Style</span> with
             Unparalleled Haircare
@@ -18,7 +16,7 @@ const Home: FC = () => {
             Unleash Your Hair&apos;s Potential with Uncompromising Quality
           </h3>
 
-          <div className="my-12 flex gap-10 items-center">
+          <div className="my-16 flex gap-4 items-center justify-center flex-col md:items-start md:justify-start lg:flex-row lg:items-center">
             <Button title="Contact Us" />
             <Address
               href="https://goo.gl/maps/rby8rfXyehgEfHUHA"
@@ -27,7 +25,7 @@ const Home: FC = () => {
             />
           </div>
 
-          <div className="flex gap-10 [&>ul>li]:mb-2">
+          <div className="flex gap-10 [&>ul>li]:mb-2 justify-center md:justify-start">
             <ul className="font-light">
               <li>Mon-Fri</li>
               <li>Sat</li>
@@ -38,7 +36,7 @@ const Home: FC = () => {
             </ul>
           </div>
         </section>
-        <section className=" w-full">
+        <section className="w-full hidden md:block ">
           <Image
             src="/heading_image.png"
             alt="woman_smiling"
