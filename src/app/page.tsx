@@ -14,7 +14,7 @@ export default function Home(props: NextPage) {
             Unparalleled Haircare
           </h1>
           <h3 className="text-xl font-light">
-            Unleash Your Hair's Potential with Uncompromising Quality
+            Unleash Your Hair&apos;s Potential with Uncompromising Quality
           </h3>
 
           <div className="my-12 flex gap-10 items-center">
