@@ -3,8 +3,9 @@ import Button from "@/components/Button";
 import Nav from "@/components/Nav";
 import { NextPage } from "next";
 import Image from "next/image";
+import { FC } from "react";
 
-export default function Home(props: NextPage) {
+const Home: FC = () => {
   return (
     <div className="  w-full ">
       <header className="flex flex-row gap-4 h-screen ">
@@ -48,4 +49,6 @@ export default function Home(props: NextPage) {
       </header>
     </div>
   );
-}
+};
+
+export default Home;
