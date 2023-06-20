@@ -8,7 +8,7 @@ import Link from "next/link";
 
 interface navProps {}
 
-const nav: FC<navProps> = () => {
+const Nav: FC<navProps> = () => {
   const [open, setOpen] = useState(false);
   const hamburgerMenuRef = useRef(null);
   useClickOutside(hamburgerMenuRef, () => setOpen(false));
@@ -53,4 +53,4 @@ const nav: FC<navProps> = () => {
   );
 };
 
-export default nav;
+export default Nav;
