@@ -5,17 +5,20 @@ import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 
-const navItemVariants = cva("font-light text-sm  hover:text-gray-900", {
-  variants: {
-    variant: {
-      default: "text-gray-500",
-      selected: "text-gray-900 font-normal",
+const navItemVariants = cva(
+  "font-light text-xl leading-[50px] md:text-sm  hover:text-gray-200 md:hover:text-gray-800",
+  {
+    variants: {
+      variant: {
+        default: "text-gray-400 md:text-gray-500",
+        selected: "text-white font-normal md:text-gray-900",
+      },
     },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
 
 interface NavItemProps extends LinkProps {
   title: string;
