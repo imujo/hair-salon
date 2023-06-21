@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
+import { cn } from "@/utils/functions";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="relative flex w-full flex-col items-center ">
+    <html lang="en" className={cn(inter.className, "")}>
+      <body className="relative flex  w-full flex-col items-center ">
         <Nav />
-        <main className="mt-14 w-full max-w-6xl px-4 md:px-14 ">
+        <main className="mt-14 w-full max-w-6xl  px-4 md:px-14 ">
           {children}
         </main>
         <Footer />

@@ -14,7 +14,7 @@ const Nav: FC<navProps> = () => {
   useClickOutside(hamburgerMenuRef, () => setOpen(false));
 
   return (
-    <nav className="fixed left-0 top-0  flex h-12 w-full justify-center  bg-white">
+    <nav className="fixed left-0 top-0 z-[100]  flex h-12 w-full justify-center bg-white ">
       <ul className="flex h-14 w-full max-w-6xl items-center gap-8 px-8">
         <li className="flex-1">
           <Link href="/">
@@ -27,7 +27,7 @@ const Nav: FC<navProps> = () => {
         <ul
           ref={hamburgerMenuRef}
           className={cn(
-            "fixed right-0 top-0 z-50 flex h-screen  w-3/4 translate-x-full flex-col bg-slate-700 p-8 shadow-2xl transition-transform md:relative md:h-12 md:max-w-6xl md:translate-x-0 md:flex-row md:items-center md:justify-end md:gap-8  md:bg-white md:p-0  md:shadow-none",
+            " fixed right-0 top-0 z-[100] flex h-screen  w-3/4 translate-x-full flex-col bg-slate-700 p-8 shadow-2xl transition-transform md:relative md:h-12 md:max-w-6xl md:translate-x-0 md:flex-row md:items-center md:justify-end md:gap-8  md:bg-white md:p-0  md:shadow-none",
             open ? "translate-x-0" : "translate-x-full"
           )}
         >

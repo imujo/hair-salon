@@ -1,20 +1,22 @@
 import Address from "@/components/Address";
 import Button from "@/components/Button";
+import WhatToExpect from "@/components/WhatToExpect";
+import { what_to_expect } from "@/temp";
 import Image from "next/image";
 import { FC } from "react";
 
 const Home: FC = () => {
   return (
-    <div className="h-[1000px] w-full ">
-      <header className="flex h-screen flex-row justify-center gap-4 text-center md:text-left ">
+    <div className=" w-full ">
+      <header className="mb-20 flex flex-row justify-center gap-4 text-center md:text-left ">
         <section className="flex w-full flex-col pt-16 md:pt-20 lg:pt-32">
           <h1 className=" mb-6 text-4xl font-bold leading-snug">
             Elevate Your <span className=" text-[#6BC0C5]">Style</span> with
             Unparalleled Haircare
           </h1>
-          <h3 className="text-xl font-light">
+          <h2 className="text-xl font-light">
             Unleash Your Hair&apos;s Potential with Uncompromising Quality
-          </h3>
+          </h2>
 
           <div className="my-16 flex flex-col items-center justify-center gap-4 md:items-start md:justify-start lg:flex-row lg:items-center">
             <Button title="Contact Us" />
@@ -45,6 +47,15 @@ const Home: FC = () => {
           />
         </section>
       </header>
+
+      <h3 className=" mb-14 text-3xl font-semibold" id="what-to-expect">
+        What To Expect?
+      </h3>
+      <div className=" sm:[&>*:nth-child(even)]:flex-row-reverse ">
+        {what_to_expect.map((data, i) => {
+          return <WhatToExpect {...data} key={i} index={i} />;
+        })}
+      </div>
     </div>
   );
 };
