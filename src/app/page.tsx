@@ -1,7 +1,7 @@
 import Address from "@/components/Address";
 import Button from "@/components/Button";
 import WhatToExpect from "@/components/WhatToExpect";
-import { what_to_expect } from "@/temp";
+import { partners, what_to_expect } from "@/temp";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -23,7 +23,6 @@ const Home: FC = () => {
             <Address
               href="https://goo.gl/maps/rby8rfXyehgEfHUHA"
               address="Rapska ulica 22, Zagreb"
-              target="_blank"
             />
           </div>
 
@@ -54,6 +53,29 @@ const Home: FC = () => {
       <div className=" sm:[&>*:nth-child(even)]:flex-row-reverse ">
         {what_to_expect.map((data, i) => {
           return <WhatToExpect {...data} key={i} index={i} />;
+        })}
+      </div>
+
+      <h3 className=" mb-14 text-3xl font-semibold" id="what-to-expect">
+        Our Partners
+      </h3>
+      <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
+        {partners.map((data, i) => {
+          return (
+            <a
+              className="flex-1 cursor-pointer p-5 transition-all duration-300 hover:bg-gray-50 hover:shadow"
+              href={data.url}
+              key={i}
+              target="_blank"
+            >
+              <Image
+                height={300}
+                width={300}
+                alt={data.title}
+                src={data.image_url}
+              />
+            </a>
+          );
         })}
       </div>
     </div>

@@ -24,3 +24,23 @@ export const what_to_expect = [
     bg: "bg-[#E0CDCD]",
   },
 ];
+
+export const partners = [
+  {
+    image_url:
+      "https://dm.henkel-dam.com/is/image/henkel/ABC?scl=1&qlt=100&fmt=png-alpha",
+    title: "Auhentic Beauty",
+    url: "https://www.authenticbeautyconcept.hr/",
+  },
+  {
+    image_url:
+      "https://logos-world.net/wp-content/uploads/2020/12/Kerastase-Logo.png",
+    title: "Kerastase",
+    url: "https://www.kerastase-usa.com/",
+  },
+  {
+    image_url: "https://cdn.freebiesupply.com/images/thumbs/2x/loreal-logo.png",
+    title: "Loreal",
+    url: "https://www.loreal.com/en/",
+  },
+];

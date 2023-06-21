@@ -10,7 +10,8 @@ const Address: FC<AddressProps> = ({ href, address, className, ...props }) => {
     <a
       {...props}
       href={href}
-      className={cn("flex gap-2 font-light items-center", className)}
+      target="_blank"
+      className={cn("flex items-center gap-2 font-light", className)}
     >
       <SlLocationPin />
       {address}
