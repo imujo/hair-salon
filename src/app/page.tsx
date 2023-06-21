@@ -1,5 +1,6 @@
 import Address from "@/components/Address";
 import Button from "@/components/Button";
+import OurTeamCarousel from "@/components/OurTeam";
 import WhatToExpect from "@/components/WhatToExpect";
 import { partners, what_to_expect } from "@/temp";
 import Image from "next/image";
@@ -56,7 +57,7 @@ const Home: FC = () => {
         })}
       </div>
 
-      <h3 className=" mb-14 text-3xl font-semibold" id="what-to-expect">
+      <h3 className=" mb-14 mt-16 text-3xl font-semibold" id="our-partners">
         Our Partners
       </h3>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
@@ -78,6 +79,22 @@ const Home: FC = () => {
           );
         })}
       </div>
+      <section className="background-wide mt-16 flex flex-col gap-10 bg-[#DBE8F0] py-20 shadow-[#DBE8F0] sm:flex-row sm:gap-14 ">
+        <div>
+          <h3 className=" mb-14  text-3xl font-semibold" id="our-team">
+            Meet Our Dedicated Team
+          </h3>
+          <p className=" max-w-md">
+            At our hair salon, you can be confident that you are in the hands of
+            a remarkable team of professionals. Our staff is comprised of highly
+            skilled and passionate individuals who are dedicated to their craft.
+            With years of experience and ongoing training in the latest industry
+            techniques, our talented hairstylists possess an exceptional level
+            of expertise.
+          </p>
+        </div>
+        <OurTeamCarousel />
+      </section>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const Nav: FC<navProps> = () => {
 
   return (
     <nav className="fixed left-0 top-0 z-[100]  flex h-12 w-full justify-center bg-white ">
-      <ul className="flex h-14 w-full max-w-6xl items-center gap-8 px-8">
+      <ul className="flex h-12 w-full max-w-6xl items-center gap-8 px-8">
         <li className="flex-1">
           <Link href="/">
             <h4 className="font-bold">Hair Salon</h4>

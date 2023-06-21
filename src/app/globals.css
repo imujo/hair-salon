@@ -20,3 +20,8 @@
   clip-path: inset(0 -100vmax);
   box-shadow: 0 0 0 100vmax var(--tw-shadow-color);
 }
+
+.mantine-Carousel-indicator {
+  background-color: rgb(241, 241, 241);
+  margin-top: 20px;
+}
