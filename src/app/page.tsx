@@ -1,6 +1,6 @@
 import Address from "@/components/Address";
 import Button from "@/components/Button";
-import OurTeamCarousel from "@/components/OurTeam";
+import OurTeamCarousel from "@/components/OurTeamCarousel";
 import WhatToExpect from "@/components/WhatToExpect";
 import { partners, what_to_expect } from "@/temp";
 import Image from "next/image";

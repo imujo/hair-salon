@@ -17,7 +17,7 @@ const OurTeamCarousel: FC<OurTeamCarouselProps> = ({}) => {
       withControls={false}
       withIndicators
       loop
-      plugins={[autoplay.current]}
+      // plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
       slideGap={20}
