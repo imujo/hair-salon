@@ -48,16 +48,14 @@ const Home: FC = () => {
         </section>
       </header>
 
-      <h3 className=" mb-14 text-3xl font-semibold" id="what-to-expect">
-        What To Expect?
-      </h3>
+      <h3 id="what-to-expect">What To Expect?</h3>
       <div className=" sm:[&>*:nth-child(even)]:flex-row-reverse ">
         {what_to_expect.map((data, i) => {
           return <WhatToExpect {...data} key={i} index={i} />;
         })}
       </div>
 
-      <h3 className=" mb-14 mt-16 text-3xl font-semibold" id="our-partners">
+      <h3 className=" mt-16" id="our-partners">
         Our Partners
       </h3>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
@@ -81,9 +79,7 @@ const Home: FC = () => {
       </div>
       <section className="background-wide mt-16 flex flex-col gap-10 bg-[#DBE8F0] py-20 shadow-[#DBE8F0] sm:flex-row sm:gap-14 ">
         <div>
-          <h3 className=" mb-14  text-3xl font-semibold" id="our-team">
-            Meet Our Dedicated Team
-          </h3>
+          <h3 id="our-team">Meet Our Dedicated Team</h3>
           <p className=" max-w-md">
             At our hair salon, you can be confident that you are in the hands of
             a remarkable team of professionals. Our staff is comprised of highly

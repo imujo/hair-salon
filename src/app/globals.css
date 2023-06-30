@@ -25,3 +25,10 @@
   background-color: rgb(241, 241, 241);
   margin-top: 20px;
 }
+
+h3 {
+  margin-bottom: 3.5rem;
+  font-size: 1.875rem /* 30px */;
+  line-height: 2.25rem /* 36px */;
+  font-weight: 600;
+}
