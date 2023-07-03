@@ -1,27 +1,9 @@
-import PricingTable from "@/components/table/PricingTable";
-import { Service } from "@/components/table/pricingTypes";
+import PricingTable from "@/components/PricingTable";
 import Image from "next/image";
-import fetchGraphQL from "@/utils/fetchGraphQL";
-
-const getServices = async () => {
-  const res = await fetchGraphQL(`
-  {
-    serviceCollection{
-        items{
-            title
-            price
-            type{
-                title
-            }
-        }
-    }
-}
-  `);
-  return res.data.serviceCollection.items;
-};
+import { getServices } from "@/utils/contentful";
 
 const Pricing = async () => {
-  const services: Service[] = await getServices();
+  const services = await getServices();
 
   return (
     <div className="min-h-screen">

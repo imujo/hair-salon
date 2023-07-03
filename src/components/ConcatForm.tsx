@@ -34,19 +34,24 @@ const contactSchema = Yup.object().shape({
   message: Yup.string().required(),
 });
 
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phoneNumber: "",
+  message: "",
+};
+
 const ConcatForm: FC<ConcatFormProps> = ({}) => {
   return (
     <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        message: "",
-      }}
+      initialValues={initialValues}
       validationSchema={contactSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
+          resetForm({
+            values: initialValues,
+          });
           alert("Thank you for contacting us!");
           setSubmitting(false);
         }, 400);

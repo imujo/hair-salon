@@ -2,78 +2,13 @@ import Address from "@/components/Address";
 import Button from "@/components/Button";
 import OurTeamCarousel from "@/components/OurTeamCarousel";
 import WhatToExpect from "@/components/WhatToExpect";
-import fetchGraphQL from "@/utils/fetchGraphQL";
+import { getHomePageData } from "@/utils/contentful";
 import Image from "next/image";
 import Link from "next/link";
 
-const getPageInfo = async () => {
-  const res = await fetchGraphQL(`
-  {
-    headerCollection{
-        items{
-            title
-            subtitle
-            address{
-                lat
-                lon
-            }
-            addressText
-            monFriWorkingHours
-            satWorkingHours
-        }
-    }
-    whatToExpectCollection{
-        items{
-            title
-            content
-            image{
-                url
-            }
-        }
-    }
-    ourPartnersCollection{
-        items{
-            image{
-                url
-                title
-            }
-            partnerWebsite
-        }
-    }
-    ourTeamCollection{
-        items{
-            content
-        }
-    }
-    teamMembersCollection{
-        items{
-            name
-            image{
-                url
-            }
-        }
-    }
-}
-  `);
-
-  return res.data;
-};
-
 const Home = async () => {
-  const pageData = await getPageInfo();
-  const headerData = pageData.headerCollection.items[0];
-  const whatToExpectData: {
-    title: string;
-    content: string;
-    image: { url: string };
-  }[] = pageData.whatToExpectCollection.items;
-  const partnersData: {
-    image: { url: string; title: string };
-    partnerWebsite: string;
-  }[] = pageData.ourPartnersCollection.items;
-  const ourTeamParagraph: string = pageData.ourTeamCollection.items[0].content;
-  const ourMembers: { name: string; image: { url: string } }[] =
-    pageData.teamMembersCollection.items;
+  const { header, whatToExpect, partners, ourTeam, teamMembers } =
+    await getHomePageData();
 
   return (
     <div className=" w-full ">
@@ -82,11 +17,11 @@ const Home = async () => {
           <h1 className=" mb-6 text-4xl font-bold leading-snug">
             {/* Elevate Your <span className=" text-[#6BC0C5]">Style</span> with
             Unparalleled Haircare */}
-            {headerData.title}
+            {header.title}
           </h1>
           <h2 className="text-xl font-light">
             {/* Unleash Your Hair&apos;s Potential with Uncompromising Quality */}
-            {headerData.subtitle}
+            {header.subtitle}
           </h2>
 
           <div className="my-16 flex flex-col items-center justify-center gap-4 md:items-start md:justify-start lg:flex-row lg:items-center">
@@ -94,8 +29,8 @@ const Home = async () => {
               <Button title="Contact Us" />
             </Link>
             <Address
-              href={`https://maps.google.com/?q=${headerData.address.lat},${headerData.address.lon}`}
-              address={headerData.addressText}
+              href={`https://maps.google.com/?q=${header.address.lat},${header.address.lon}`}
+              address={header.addressText}
             />
           </div>
 
@@ -105,8 +40,8 @@ const Home = async () => {
               <li>Sat</li>
             </ul>
             <ul className="font-semibold">
-              <li>{headerData.monFriWorkingHours}</li>
-              <li>{headerData.satWorkingHours}</li>
+              <li>{header.monFriWorkingHours}</li>
+              <li>{header.satWorkingHours}</li>
             </ul>
           </div>
         </section>
@@ -122,7 +57,7 @@ const Home = async () => {
 
       <h3 id="what-to-expect">What To Expect?</h3>
       <div className=" sm:[&>*:nth-child(even)]:flex-row-reverse ">
-        {whatToExpectData.map((data, i) => {
+        {whatToExpect.map((data, i) => {
           return (
             <WhatToExpect
               title={data.title}
@@ -139,7 +74,7 @@ const Home = async () => {
         Our Partners
       </h3>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
-        {partnersData.map((data, i) => {
+        {partners.map((data, i) => {
           return (
             <a
               className="flex-1 cursor-pointer p-5 transition-all duration-300 hover:bg-gray-50 hover:shadow"
@@ -160,9 +95,9 @@ const Home = async () => {
       <section className="background-wide mt-16 flex flex-col gap-10 bg-[#DBE8F0] py-20 shadow-[#DBE8F0] sm:flex-row sm:gap-14 ">
         <div>
           <h3 id="our-team">Meet Our Dedicated Team</h3>
-          <p className=" max-w-md">{ourTeamParagraph}</p>
+          <p className=" max-w-md">{ourTeam}</p>
         </div>
-        <OurTeamCarousel data={ourMembers} />
+        <OurTeamCarousel data={teamMembers} />
       </section>
     </div>
   );

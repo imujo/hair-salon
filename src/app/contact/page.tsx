@@ -1,20 +1,6 @@
 import ConcatForm from "@/components/ConcatForm";
-import fetchGraphQL from "@/utils/fetchGraphQL";
+import { getPhoneNumber } from "@/utils/contentful";
 import Image from "next/image";
-
-const getPhoneNumber = async () => {
-  const res = await fetchGraphQL(`
-  {
-    contactCollection{
-        items{
-            phoneNumber
-        }
-    }
-}
-`);
-
-  return res.data.contactCollection.items[0].phoneNumber;
-};
 
 const Contact = async () => {
   const phoneNumber = await getPhoneNumber();

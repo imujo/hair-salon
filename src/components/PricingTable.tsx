@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { Service, euroFormat } from "./pricingTypes";
 import {
   ColumnDef,
   createColumnHelper,
@@ -8,6 +7,8 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { euroFormat } from "@/utils/functions";
+import { Service } from "@/utils/types";
 
 interface PricingTableProps {
   data: Service[];
