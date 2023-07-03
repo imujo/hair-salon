@@ -7,8 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Home = async () => {
-  const { header, whatToExpect, partners, ourTeam, teamMembers } =
-    await getHomePageData();
+  const data = await getHomePageData();
+
+  if (data == null) throw new Error("Internal Server Error");
+
+  const { header, whatToExpect, partners, ourTeam, teamMembers } = data;
 
   return (
     <div className=" w-full ">

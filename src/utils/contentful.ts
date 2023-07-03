@@ -56,6 +56,7 @@ export async function getHomePageData() {
       }
   }
     `);
+
   if (res == undefined || res == null) return null;
   const header: HeaderData = res.data.headerCollection.items[0];
   const whatToExpect: WhatToExpectData = res.data.whatToExpectCollection.items;
