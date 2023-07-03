@@ -1,7 +1,6 @@
 "use client";
 import { FC, useRef } from "react";
 import { Carousel } from "@mantine/carousel";
-import { team } from "@/temp";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
