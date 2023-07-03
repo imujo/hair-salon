@@ -6,6 +6,7 @@ const nextConfig = {
       "dm.henkel-dam.com",
       "logos-world.net",
       "cdn.freebiesupply.com",
+      "images.ctfassets.net",
     ],
   },
 };

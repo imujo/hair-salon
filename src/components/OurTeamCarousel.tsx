@@ -5,9 +5,11 @@ import { team } from "@/temp";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
-interface OurTeamCarouselProps {}
+interface OurTeamCarouselProps {
+  data: { name: string; image: { url: string } }[];
+}
 
-const OurTeamCarousel: FC<OurTeamCarouselProps> = ({}) => {
+const OurTeamCarousel: FC<OurTeamCarouselProps> = ({ data }) => {
   const autoplay = useRef(Autoplay({ delay: 4000 }));
   return (
     <Carousel
@@ -29,14 +31,14 @@ const OurTeamCarousel: FC<OurTeamCarouselProps> = ({}) => {
         },
       }}
     >
-      {team.map((data, i) => {
+      {data.map((data, i) => {
         return (
           <Carousel.Slide key={i}>
             <Image
               height={300}
               width={300}
               alt={data.name}
-              src={data.image_url}
+              src={data.image.url}
               className="h-[250px] w-[250px] rounded-md object-cover shadow-md"
               onClick={(e) => {
                 // clicking on a carousel item causes an error, this stops it

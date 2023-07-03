@@ -3,27 +3,100 @@ import Button from "@/components/Button";
 import OurTeamCarousel from "@/components/OurTeamCarousel";
 import WhatToExpect from "@/components/WhatToExpect";
 import { partners, what_to_expect } from "@/temp";
+import fetchGraphQL from "@/utils/fetchGraphQL";
 import Image from "next/image";
-import { FC } from "react";
+import Link from "next/link";
 
-const Home: FC = () => {
+const getPageInfo = async () => {
+  const res = await fetchGraphQL(`
+  {
+    headerCollection{
+        items{
+            title
+            subtitle
+            address{
+                lat
+                lon
+            }
+            addressText
+            monFriWorkingHours
+            satWorkingHours
+        }
+    }
+    whatToExpectCollection{
+        items{
+            title
+            content
+            image{
+                url
+            }
+        }
+    }
+    ourPartnersCollection{
+        items{
+            image{
+                url
+                title
+            }
+            partnerWebsite
+        }
+    }
+    ourTeamCollection{
+        items{
+            content
+        }
+    }
+    teamMembersCollection{
+        items{
+            name
+            image{
+                url
+            }
+        }
+    }
+}
+  `);
+
+  return res.data;
+};
+
+const Home = async () => {
+  const pageData = await getPageInfo();
+  const headerData = pageData.headerCollection.items[0];
+  const whatToExpectData: {
+    title: string;
+    content: string;
+    image: { url: string };
+  }[] = pageData.whatToExpectCollection.items;
+  const partnersData: {
+    image: { url: string; title: string };
+    partnerWebsite: string;
+  }[] = pageData.ourPartnersCollection.items;
+  const ourTeamParagraph: string = pageData.ourTeamCollection.items[0].content;
+  const ourMembers: { name: string; image: { url: string } }[] =
+    pageData.teamMembersCollection.items;
+
   return (
     <div className=" w-full ">
       <header className="mb-20 flex flex-row justify-center gap-4 text-center md:text-left ">
         <section className="flex w-full flex-col pt-16 md:pt-20 lg:pt-32">
           <h1 className=" mb-6 text-4xl font-bold leading-snug">
-            Elevate Your <span className=" text-[#6BC0C5]">Style</span> with
-            Unparalleled Haircare
+            {/* Elevate Your <span className=" text-[#6BC0C5]">Style</span> with
+            Unparalleled Haircare */}
+            {headerData.title}
           </h1>
           <h2 className="text-xl font-light">
-            Unleash Your Hair&apos;s Potential with Uncompromising Quality
+            {/* Unleash Your Hair&apos;s Potential with Uncompromising Quality */}
+            {headerData.subtitle}
           </h2>
 
           <div className="my-16 flex flex-col items-center justify-center gap-4 md:items-start md:justify-start lg:flex-row lg:items-center">
-            <Button title="Contact Us" />
+            <Link href={"contact"}>
+              <Button title="Contact Us" />
+            </Link>
             <Address
-              href="https://goo.gl/maps/rby8rfXyehgEfHUHA"
-              address="Rapska ulica 22, Zagreb"
+              href={`https://maps.google.com/?q=${headerData.address.lat},${headerData.address.lon}`}
+              address={headerData.addressText}
             />
           </div>
 
@@ -33,8 +106,8 @@ const Home: FC = () => {
               <li>Sat</li>
             </ul>
             <ul className="font-semibold">
-              <li>07:00-20:00</li>
-              <li>07:00-15:00</li>
+              <li>{headerData.monFriWorkingHours}</li>
+              <li>{headerData.satWorkingHours}</li>
             </ul>
           </div>
         </section>
@@ -50,8 +123,16 @@ const Home: FC = () => {
 
       <h3 id="what-to-expect">What To Expect?</h3>
       <div className=" sm:[&>*:nth-child(even)]:flex-row-reverse ">
-        {what_to_expect.map((data, i) => {
-          return <WhatToExpect {...data} key={i} index={i} />;
+        {whatToExpectData.map((data, i) => {
+          return (
+            <WhatToExpect
+              title={data.title}
+              paragraph={data.content}
+              image_url={data.image.url}
+              key={i}
+              index={i}
+            />
+          );
         })}
       </div>
 
@@ -59,19 +140,19 @@ const Home: FC = () => {
         Our Partners
       </h3>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
-        {partners.map((data, i) => {
+        {partnersData.map((data, i) => {
           return (
             <a
               className="flex-1 cursor-pointer p-5 transition-all duration-300 hover:bg-gray-50 hover:shadow"
-              href={data.url}
+              href={data.partnerWebsite}
               key={i}
               target="_blank"
             >
               <Image
                 height={300}
                 width={300}
-                alt={data.title}
-                src={data.image_url}
+                alt={data.image.title}
+                src={data.image.url}
               />
             </a>
           );
@@ -80,16 +161,9 @@ const Home: FC = () => {
       <section className="background-wide mt-16 flex flex-col gap-10 bg-[#DBE8F0] py-20 shadow-[#DBE8F0] sm:flex-row sm:gap-14 ">
         <div>
           <h3 id="our-team">Meet Our Dedicated Team</h3>
-          <p className=" max-w-md">
-            At our hair salon, you can be confident that you are in the hands of
-            a remarkable team of professionals. Our staff is comprised of highly
-            skilled and passionate individuals who are dedicated to their craft.
-            With years of experience and ongoing training in the latest industry
-            techniques, our talented hairstylists possess an exceptional level
-            of expertise.
-          </p>
+          <p className=" max-w-md">{ourTeamParagraph}</p>
         </div>
-        <OurTeamCarousel />
+        <OurTeamCarousel data={ourMembers} />
       </section>
     </div>
   );

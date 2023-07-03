@@ -1,11 +1,24 @@
-import Input from "@/components/Input";
-import { FC } from "react";
 import ConcatForm from "@/components/ConcatForm";
+import fetchGraphQL from "@/utils/fetchGraphQL";
 import Image from "next/image";
 
-interface ContactProps {}
+const getPhoneNumber = async () => {
+  const res = await fetchGraphQL(`
+  {
+    contactCollection{
+        items{
+            phoneNumber
+        }
+    }
+}
+`);
 
-const Contact: FC<ContactProps> = ({}) => {
+  return res.data.contactCollection.items[0].phoneNumber;
+};
+
+const Contact = async () => {
+  const phoneNumber = await getPhoneNumber();
+
   return (
     <div className="mt-7 flex gap-6">
       <div className="hidden w-1/2  items-center justify-start lg:flex">
@@ -18,12 +31,12 @@ const Contact: FC<ContactProps> = ({}) => {
         />
       </div>
 
-      <div className="w-1/2">
+      <div className="w-full lg:w-1/2">
         <h3>Contact Us</h3>
 
         <div className="flex w-full justify-between ">
           <span className="font-light text-gray-500">Phone Number</span>
-          <span className="font-medium text-gray-700 ">091 978 9889</span>
+          <span className="font-medium text-gray-700 ">{phoneNumber}</span>
         </div>
 
         <div className="relative mb-12">

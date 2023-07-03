@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import Input from "./Input";
 import * as Yup from "yup";
 import { Oval } from "react-loader-spinner";
+import TextArea from "./TextArea";
 
 interface ConcatFormProps {}
 
@@ -30,7 +31,7 @@ const contactSchema = Yup.object().shape({
     }
   ),
 
-  message: Yup.string().required("A message is required!"),
+  message: Yup.string().required(),
 });
 
 const ConcatForm: FC<ConcatFormProps> = ({}) => {
@@ -54,7 +55,6 @@ const ConcatForm: FC<ConcatFormProps> = ({}) => {
       {({
         values,
         errors,
-        touched,
         handleChange,
         handleBlur,
         handleSubmit,
@@ -101,8 +101,7 @@ const ConcatForm: FC<ConcatFormProps> = ({}) => {
               errorMsg={errors.phoneNumber}
             />
           </div>
-          <Input
-            type="textarea"
+          <TextArea
             id="message"
             title="Message"
             onChange={handleChange}

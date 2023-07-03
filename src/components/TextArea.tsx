@@ -1,15 +1,15 @@
 import { cn } from "@/utils/functions";
 import { cva } from "class-variance-authority";
-import { FC, InputHTMLAttributes } from "react";
+import { FC, TextareaHTMLAttributes } from "react";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
   title: string;
   errorMsg: string | undefined;
   className?: string;
 }
 
-const inputVariants = cva("mt-2 h-12 w-full rounded px-3", {
+const textAreaVariants = cva("mt-2 h-12 w-full rounded px-3", {
   variants: {
     status: {
       default:
@@ -23,32 +23,32 @@ const inputVariants = cva("mt-2 h-12 w-full rounded px-3", {
   },
 });
 
-const Input: FC<InputProps> = ({
+const TextArea: FC<TextAreaProps> = ({
   id,
   title,
   errorMsg,
   className,
-  type,
   ...props
 }) => {
   const style = !!errorMsg
-    ? inputVariants({ status: "error" })
-    : inputVariants({ status: "default" });
+    ? textAreaVariants({ status: "error" })
+    : textAreaVariants({ status: "default" });
   return (
     <div className="mb-6">
       <label htmlFor={id} className=" font-medium">
         {title}
       </label>
-      <input
-        type={type}
-        className={cn(style, className, "")}
+
+      <textarea
+        className={cn(style, className, " max-h-48 min-h-[6rem] resize-y pt-2")}
         id={id}
         placeholder={title}
         {...props}
       />
+
       <p className="mt-1 text-xs text-red-400">{errorMsg}</p>
     </div>
   );
 };
 
-export default Input;
+export default TextArea;

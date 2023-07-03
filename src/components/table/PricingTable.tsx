@@ -8,7 +8,6 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { SourceTextModule } from "vm";
 
 interface PricingTableProps {
   data: Service[];
@@ -48,7 +47,7 @@ const PricingTable: FC<PricingTableProps> = ({ data }) => {
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th className=" text-start text-sm font-light" key={header.id}>
+                <th className="text-start text-sm font-light" key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -63,7 +62,7 @@ const PricingTable: FC<PricingTableProps> = ({ data }) => {
         <tbody>
           {table.getRowModel().rows.map((row) => (
             <tr
-              className=" h-14 border-b-[1px] border-gray-200 text-sm font-light [&>*:first-child]:font-medium"
+              className="h-14 border-b-[1px] border-gray-200 text-sm font-light [&>*:first-child]:font-medium"
               key={row.id}
             >
               {row.getVisibleCells().map((cell) => (
