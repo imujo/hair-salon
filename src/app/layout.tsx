@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn(inter.className, "")}>
-      <body className="relative flex  w-full flex-col items-center ">
+      <body className="relative flex  min-h-screen w-full flex-col items-center ">
         <Nav />
-        <main className=" mt-14 w-full max-w-6xl  px-4 md:px-14 ">
+        <main className="mb-28 mt-14 w-full max-w-6xl  px-4 md:px-14 ">
           {children}
         </main>
         <Footer />

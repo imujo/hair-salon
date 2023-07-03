@@ -32,11 +32,11 @@ const Nav: FC<navProps> = () => {
           )}
         >
           <NavItem onClick={() => setOpen(false)} title="Home" href="/" />
-          <NavItem
+          {/* <NavItem
             onClick={() => setOpen(false)}
             title="Our Work"
             href="/our-work"
-          />
+          /> */}
           <NavItem
             onClick={() => setOpen(false)}
             title="Pricing"
