@@ -1,4 +1,4 @@
-import ConcatForm from "@/components/ConcatForm";
+import ConcatForm from "@/components/ContactForm";
 import { getPhoneNumber } from "@/utils/contentful";
 import Image from "next/image";
 

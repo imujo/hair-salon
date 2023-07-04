@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hair Salon
 
-## Getting Started
+The Hair Salon Website is a web development project featuring a home page, pricing page, and contact page for a fictional hair salon. The home page provides an overview of the salon's offerings, while the pricing page displays detailed information about services and costs. The contact page allows visitors to easily get in touch with the salon for appointments or inquiries.
 
-First, run the development server:
+## Project Goals
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The primary objective of this project was to gain familiarity with new technologies and frameworks such as Next.js, Tailwind CSS, React Server Components, and Contenful CMS. By developing this quick website, I aimed to understand the strengths, weaknesses, and best practices associated with these technologies. This hands-on experience would enable me to confidently utilize them in future, larger-scale projects. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `Next JS` - was used for it's SSR capabilities and because of it's strong market presence
+- `Tailwind` - was used because of it's quick development time and ease of use, without having to learn an alternative paradigm to CSS
+- `Contentful CMS` - was used for it's ease of use
+- `Maintine Carousel` - for the team members carousel
+- `Tanstack Table` - for the pricing table
+- `Formik` - for the contact form
+- `Yup` - for contact form validation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Licence
 
-## Learn More
+MIT License
 
-To learn more about Next.js, take a look at the following resources:
+Copyright (c) 2023 Ivo Mujo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

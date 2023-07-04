@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { Oval } from "react-loader-spinner";
 import TextArea from "./TextArea";
 
-interface ConcatFormProps {}
+interface ContactFormProps {}
 
 const contactSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -42,7 +42,7 @@ const initialValues = {
   message: "",
 };
 
-const ConcatForm: FC<ConcatFormProps> = ({}) => {
+const ContactForm: FC<ContactFormProps> = ({}) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -142,4 +142,4 @@ const ConcatForm: FC<ConcatFormProps> = ({}) => {
   );
 };
 
-export default ConcatForm;
+export default ContactForm;
