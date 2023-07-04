@@ -2,6 +2,8 @@
 
 The Hair Salon Website is a web development project featuring a home page, pricing page, and contact page for a fictional hair salon. The home page provides an overview of the salon's offerings, while the pricing page displays detailed information about services and costs. The contact page allows visitors to easily get in touch with the salon for appointments or inquiries.
 
+[Live website](https://hair-salon-six.vercel.app/)
+
 ## Project Goals
 
 The primary objective of this project was to gain familiarity with new technologies and frameworks such as Next.js, Tailwind CSS, React Server Components, and Contenful CMS. By developing this quick website, I aimed to understand the strengths, weaknesses, and best practices associated with these technologies. This hands-on experience would enable me to confidently utilize them in future, larger-scale projects. 
