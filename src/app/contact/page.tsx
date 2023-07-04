@@ -7,14 +7,16 @@ const Contact = async () => {
 
   return (
     <div className="mt-7 flex gap-6">
-      <div className="hidden w-1/2  items-center justify-start lg:flex">
-        <Image
-          height={1000}
-          width={500}
-          alt="hairdresser"
-          className=" w-4/5"
-          src={"/contact_image.png"}
-        />
+      <div className="relative  hidden w-1/2  items-center justify-start lg:flex">
+        <div className="relative h-full w-5/6">
+          <Image
+            fill
+            alt="hairdresser"
+            className=" object-contain"
+            src={"/contact_image.png"}
+            sizes="(min-width: 1000px) 50vw, 0vw"
+          />
+        </div>
       </div>
 
       <div className="w-full lg:w-1/2">

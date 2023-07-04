@@ -34,11 +34,11 @@ const OurTeamCarousel: FC<OurTeamCarouselProps> = ({ data }) => {
         return (
           <Carousel.Slide key={i}>
             <Image
-              height={300}
-              width={300}
+              height={250}
+              width={250}
               alt={data.name}
               src={data.image.url}
-              className="h-[250px] w-[250px] rounded-md object-cover shadow-md"
+              className=" aspect-square rounded-md object-cover shadow-md"
               onClick={(e) => {
                 // clicking on a carousel item causes an error, this stops it
                 e.stopPropagation();

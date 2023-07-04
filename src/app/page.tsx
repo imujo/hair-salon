@@ -48,12 +48,14 @@ const Home = async () => {
             </ul>
           </div>
         </section>
-        <section className="hidden w-full md:block ">
+        <section className="relative hidden w-full md:block">
           <Image
             src="/heading_image.png"
             alt="woman_smiling"
-            width={500}
-            height={1000}
+            fill
+            className="object-contain"
+            priority
+            sizes="(max-width: 768px) 0vw, (max-width: 1200px) 50vw"
           />
         </section>
       </header>
@@ -76,20 +78,21 @@ const Home = async () => {
       <h3 className=" mt-16" id="our-partners">
         Our Partners
       </h3>
-      <div className="flex w-full flex-col items-center gap-2 sm:flex-row ">
+      <div className="flex h-[700px] w-full flex-col items-center gap-8 sm:h-auto sm:flex-row ">
         {partners.map((data, i) => {
           return (
             <a
-              className="flex-1 cursor-pointer p-5 transition-all duration-300 hover:bg-gray-50 hover:shadow"
+              className="relative h-24 w-full flex-1 cursor-pointer transition-all duration-300 hover:bg-gray-50 hover:shadow sm:h-40 md:h-52 lg:h-64"
               href={data.partnerWebsite}
               key={i}
               target="_blank"
             >
               <Image
-                height={300}
-                width={300}
+                fill
                 alt={data.image.title}
                 src={data.image.url}
+                className=" object-contain p-4"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
               />
             </a>
           );

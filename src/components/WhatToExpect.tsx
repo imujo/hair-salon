@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 const whatToExpectVariants = cva(
-  "background-wide relative mb-14 flex flex-col sm:flex-row sm:gap-10",
+  "background-wide relative mb-14 pb-4 sm:pb-0 flex flex-col sm:flex-row sm:gap-10",
   {
     variants: {
       color: {
@@ -45,13 +45,15 @@ const WhatToExpect: FC<WhatToExpectProps> = ({
         <h4 className=" mb-6 text-lg font-semibold">{title}</h4>
         <p>{paragraph}</p>
       </div>
-      <Image
-        className="w-full object-cover sm:w-1/2 sm:flex-1 "
-        src={image_url}
-        height={500}
-        width={500}
-        alt="hair salon"
-      />
+      <div className="relative aspect-video sm:h-auto sm:w-1/2 sm:flex-1 ">
+        <Image
+          className="w-full object-cover"
+          src={image_url}
+          alt="hair salon"
+          fill
+          sizes="(max-width: 680px) 50vw, 100vw"
+        />
+      </div>
     </div>
   );
 };
